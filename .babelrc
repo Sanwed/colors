@@ -1,0 +1,19 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "> 1%",
+            "chrome >= 58",
+            "firefox >= 54",
+            "safari >= 9",
+            "edge >= 16"
+          ]
+        },
+        "useBuiltIns": "entry"
+      }
+    ]
+  ]
+}
