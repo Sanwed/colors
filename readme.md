@@ -2,7 +2,7 @@
 Интернет-магазин для покупки товаров
 
 ## Как запустить
-1. Клонировать репозиторий ```https://github.com/Sanwed/colors.git```
+1. Клонировать репозиторий ```git clone https://github.com/Sanwed/colors.git```
 2. Запустить проект для разработки ```npm run dev```
 3. Создать сборку проекта ```npm run build```
 
