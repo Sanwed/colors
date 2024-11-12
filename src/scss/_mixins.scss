@@ -1,0 +1,79 @@
+@use 'variables';
+@use 'functions';
+
+@mixin desktop() {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin medium-desktop() {
+  @media (min-width: 1500px) {
+    @content;
+  }
+}
+
+@mixin large-desktop() {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin hover() {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin transition($property: all) {
+  transition: $property variables.$transition-duration ease;
+}
+
+@mixin button() {
+  display: block;
+  width: 40px;
+  height: 24px;
+  background: variables.$gray;
+  border-radius: 6px;
+  flex-shrink: 0;
+  position: relative;
+  border: none;
+  @include transition(background-color);
+  
+  &:active {
+    background: variables.$alt;
+  }
+  
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 2px;
+    border-radius: 3px;
+    background: variables.$dark;
+    
+  }
+  
+  &::before {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  
+  &::after {
+    transform: translate(-50%, -50%);
+  }
+  
+  &--remove {
+    &::before {
+      display: none;
+    }
+  }
+  
+  @include hover {
+    background: functions.color(variables.$alt, 0.5)
+  }
+}

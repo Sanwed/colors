@@ -1,0 +1,24 @@
+header.header
+  .header__wrapper
+    button.header__nav-button(aria-label="Открыть навигацию")
+    a.header__logo(href="#")
+      img(src=require("../assets/images/logo.svg"), alt="Логотип Colors" width="99" height="21")
+    nav.header__nav.nav
+      button.nav__close-button(aria-label="Закрыть навигацию")
+      ul.nav__list
+        li.nav__item: a.nav__link(href="#") Продукты
+        li.nav__item: a.nav__link(href="#") Цвета
+        li.nav__item: a.nav__link(href="#") Вдохновение
+        li.nav__item: a.nav__link(href="#") Советы
+        li.nav__item: a.nav__link(href="#") Найти магазин
+    a.header__number(href="tel:+74952217769")
+      span.header__number-num +7 (495) 221-77-69
+      span.header__number-text Заказать звонок
+    .header__user
+      a.header__user-link(href="#")
+        img(src=require("../assets/images/search.svg"), alt="Поиск" width="22" height="22")
+      a.header__user-link(href="#")
+        img(src=require("../assets/images/profile.svg"), alt="Профиль" width="22" height="22")
+      a.header__user-link(href="#")
+        img(src=require("../assets/images/heart.svg"), alt="Избранное" width="22" height="22")
+      a.header__user-link.header__user-link--cart(href="#") 4

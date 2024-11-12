@@ -1,0 +1,133 @@
+@use "../variables";
+@use "../mixins";
+@use "../functions";
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 0;
+  margin: 0 24px;
+  border-bottom: 1px solid functions.color(variables.$dark, 0.06);
+  
+  @include mixins.desktop {
+    padding: 36px 32px;
+    justify-content: left;
+    border-bottom: none;
+    margin: 0;
+  }
+  
+  @include mixins.large-desktop {
+    padding: 36px 64px;
+  }
+}
+
+.header__nav-button {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  margin: 0;
+  border: none;
+  @include mixins.transition(transform);
+  
+  &:active {
+    transform: scale(0.9);
+  }
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 2px;
+    display: block;
+    background: variables.$dark;
+    box-shadow: 0 -6px 0 0 variables.$dark, 0 6px 0 0 variables.$dark;
+  }
+  
+  @include mixins.desktop {
+    display: none;
+  }
+}
+
+.header__logo {
+  @include mixins.desktop {
+    margin-right: 80px;
+  }
+  
+  @include mixins.large-desktop {
+    margin-right: 170px;
+  }
+}
+
+.header__user {
+  display: flex;
+  align-items: center;
+}
+
+.header__user-link {
+  display: none;
+  color: variables.$dark;
+  text-decoration: none;
+  padding: 12px;
+  @include mixins.transition(background-color);
+  border-radius: 50%;
+  
+  @include mixins.hover {
+    background-color: functions.color(variables.$dark, 0.06);
+  }
+  
+  &--cart {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    width: 24px;
+    height: 24px;
+    background: variables.$alt;
+    
+  }
+  
+  @include mixins.medium-desktop {
+    display: block;
+    
+    &--cart {
+      display: flex;
+      margin-left: 12px;
+    }
+  }
+}
+
+.header__number {
+  display: none;
+  
+  @include mixins.desktop {
+    display: block;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: 50px;
+  }
+  
+  @include mixins.large-desktop {
+    margin-right: 116px;
+  }
+}
+
+.header__number-num {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: variables.$dark;
+  margin-bottom: 2px;
+}
+
+.header__number-text {
+  color: functions.color(variables.$dark, 0.3)
+}

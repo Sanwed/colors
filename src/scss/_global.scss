@@ -1,0 +1,76 @@
+@use "variables";
+@use "mixins";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  color: variables.$dark;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+  overflow-x: hidden;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  display: block;
+  height: 100%;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 32px;
+  margin: 0 0 48px;
+  padding: 0 24px;
+  font-weight: 400;
+  
+  @include mixins.desktop {
+    display: none;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  @include mixins.transition(opacity);
+  z-index: 80;
+  
+  &--open {
+    opacity: 1;
+    height: 100%;
+  }
+}
+
+.page-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}

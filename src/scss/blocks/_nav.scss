@@ -1,0 +1,126 @@
+@use "../variables";
+@use "../mixins";
+@use "../functions";
+
+.nav {
+  position: fixed;
+  padding: 20px 24px;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: variables.$white;
+  @include mixins.transition(left);
+  z-index: 100;
+  
+  &--open {
+    left: 0;
+  }
+  
+  @include mixins.desktop {
+    position: static;
+    padding: 0;
+    background: transparent;
+    width: auto;
+    height: auto;
+    z-index: 70;
+    max-width: 550px;
+  }
+}
+
+.nav__close-button {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  margin: 0 0 20px;
+  border: none;
+  padding: 0;
+  @include mixins.transition(transform);
+  
+  &:active {
+    transform: scale(0.9);
+  }
+  
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    width: 100%;
+    height: 2px;
+    display: block;
+    background: variables.$dark;
+  }
+  
+  &::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  
+  &::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  
+  @include mixins.desktop {
+    display: none;
+  }
+}
+
+.nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+  @include mixins.desktop {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+.nav__item {
+  border-bottom: 1px solid functions.color(variables.$dark, 0.06);
+  
+  @include mixins.desktop {
+    border: none;
+  }
+}
+
+.nav__link {
+  display: block;
+  width: 100%;
+  padding: 20px 24px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: variables.$dark;
+  text-decoration: none;
+  position: relative;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background: variables.$dark;
+    bottom: -3px;
+    left: 50%;
+    @include mixins.transition;
+  }
+  
+  @include mixins.desktop {
+    padding: 0;
+  }
+  
+  @include mixins.hover {
+    &::before {
+      width: 100%;
+      left: 0;
+    }
+  }
+}

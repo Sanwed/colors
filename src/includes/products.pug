@@ -1,0 +1,41 @@
+section.products
+  .products__wrapper
+    header.products__header
+      button.products__filter-button Фильтры
+      span.products__count
+      .products__sort-wrapper
+        .products__sort
+          ul.products__sort-list
+        button.products__open-sort-button
+          span.products__open-sort-button-text Сначала дорогие
+          img(src=require("../assets/images/sort-arrow-icon.svg") alt="Иконка стрелки" width="8" height="6")
+    ul.products__list
+  .products__filter
+    .products__move-zone(aria-label="Зона управлением навигацией")
+      span(aria-hidden="true")
+    ul.products__filter-list
+      li.products__filter-item
+        label.products__filter-label
+          input.products__filter-checkbox(type="checkbox" name="isNew")
+          span.products__filter-checkbox-custom
+          span.products__filter-text Новинки
+      li.products__filter-item
+        label.products__filter-label
+          input.products__filter-checkbox(type="checkbox" name="inStock")
+          span.products__filter-checkbox-custom
+          span.products__filter-text Есть в наличии
+      li.products__filter-item
+        label.products__filter-label
+          input.products__filter-checkbox(type="checkbox" name="isContract")
+          span.products__filter-checkbox-custom
+          span.products__filter-text Контрактные
+      li.products__filter-item
+        label.products__filter-label
+          input.products__filter-checkbox(type="checkbox" name="isExclusive")
+          span.products__filter-checkbox-custom
+          span.products__filter-text Эксклюзивные
+      li.products__filter-item
+        label.products__filter-label
+          input.products__filter-checkbox(type="checkbox" name="forSale")
+          span.products__filter-checkbox-custom
+          span.products__filter-text Распродажа

@@ -1,0 +1,8 @@
+@use "../variables";
+
+.footer {
+  height: 200px;
+  background: variables.$dark;
+  width: 100%;
+  flex-shrink: 0;
+}

@@ -1,0 +1,74 @@
+@use "../variables";
+@use "../mixins";
+@use "../functions";
+
+.banner {
+  margin-bottom: 32px;
+  
+  @include mixins.desktop {
+    background-image: url("../assets/images/banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin-bottom: 0;
+  }
+}
+
+.banner__wrapper {
+  padding: 16px 24px;
+  
+  @include mixins.desktop {
+    padding: 32px;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @include mixins.large-desktop {
+    padding: 32px 64px;
+  }
+}
+
+.banner__nav-list {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.banner__nav-item:last-child {
+  .banner__nav-link::after {
+    display: none;
+  }
+}
+
+.banner__nav-link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  text-transform: uppercase;
+  color: functions.color(variables.$dark, 0.3);
+  font-size: 10px;
+  line-height: 10px;
+  text-decoration: none;
+  
+  &::after {
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: functions.color(variables.$dark, 0.3);
+  }
+  
+  @include mixins.desktop {
+    color: functions.color(variables.$white, 0.3);
+    
+    &::after {
+      background: functions.color(variables.$white, 0.3);
+    }
+  }
+}
