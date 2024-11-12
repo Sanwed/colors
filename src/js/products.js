@@ -38,6 +38,7 @@ const createProduct = (product) => {
   const image = new Image();
   image.src = product.preview;
   image.alt = product.title;
+  image.loading = 'lazy';
   productImage.appendChild(image);
   
   const title = document.createElement('h2');
@@ -56,6 +57,7 @@ const createProduct = (product) => {
   
   const button = document.createElement('button');
   button.classList.add('products__buy-button');
+  button.setAttribute('aria-label', 'Добавить в корзину');
   button.addEventListener('click', updateCart);
   priceWrapper.appendChild(button);
 };
