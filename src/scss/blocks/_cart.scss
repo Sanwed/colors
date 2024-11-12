@@ -1,6 +1,6 @@
 @use "../variables";
 @use "../mixins";
-@use '../functions';
+@use "../functions";
 
 .cart {
   position: fixed;
@@ -46,6 +46,11 @@
   padding: 0;
   border: 1px solid functions.color(variables.$dark, 0.1);
   border-radius: 50%;
+  @include mixins.transition(background-color);
+  
+  @include mixins.hover {
+    background: functions.color(variables.$dark, 0.1);
+  }
   
   &::before,
   &::after {
@@ -91,6 +96,11 @@
   padding: 0;
   margin: 0;
   border: none;
+  @include mixins.transition(color);
+  
+  @include mixins.hover {
+    color: variables.$alt;
+  }
 }
 
 .cart__list {
@@ -167,6 +177,7 @@
     border-radius: 20px;
     display: block;
     background: functions.color(variables.$dark, 0.2);
+    @include mixins.transition(background-color);
   }
   
   &::before {
@@ -175,6 +186,13 @@
   
   &::after {
     transform: translate(-50%, -50%) rotate(45deg);
+  }
+  
+  @include mixins.hover {
+    &::before,
+    &::after {
+      background: variables.$alt;
+    }
   }
 }
 
@@ -211,4 +229,9 @@
   font-weight: 500;
   font-family: inherit;
   color: variables.$dark;
+  @include mixins.transition(background-color);
+  
+  @include mixins.hover {
+    background: functions.color(variables.$alt, 0.8);
+  }
 }
